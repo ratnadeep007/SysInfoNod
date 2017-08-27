@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+  <script src="https://clientjs.org/js/client.min.js"></script>
+  <title>
+    Sysinfo
+  </title>
+  <body>
+      <div class="container">
+        <h1>System Info</h1>
+        <div id="output"></div>
+        <h2 class="page-header">Browser Details</h2>
+        <ul class="list-group">
+          <li class="list-group-item" id="useragent"></li>
+          <li class="list-group-item" id="browser"></li>
+          <li class="list-group-item" id="engine"></li>
+          <li class="list-group-item" id="cookie-i"></li>
+        </ul>
+        <h2 class="page-header">Operating System Details</h2>
+        <ul class="list-group">
+          <li class="list-group-item" id="os"></li>
+          <li class="list-group-item" id="tz"></li>
+        </ul>
+        <h2 class="page-header">Device Details</h2>
+        <ul class="list-group">
+          <li class="list-group-item" id="device"></li>
+          <li class="list-group-item" id="device-type"></li>
+          <li class="list-group-item" id="device-vendor"></li>
+        </ul>
+        <h2 class="page-header">CPU Details</h2>
+        <ul class="list-group">
+          <li class="list-group-item" id="cpu"></li>
+        </ul>
+          <h2 class="page-header">Screen Details</h2>
+        <ul class="list-group">
+          <li class="list-group-item" id="reso"></li>
+          <li class="list-group-item" id="color-depth"></li>
+          <li class="list-group-item" id="reso-avail"></li>
+        </ul>
+      </div>
+  </body>
+  <script>
+  var client = new ClientJS(); // Create A New Client Object
+    document.getElementById('useragent').innerHTML = "<b>User Agent:</b> " + client.getUserAgent();
+    document.getElementById('browser').innerHTML = "<b>Browser:</b> " + client.getBrowser() + ", <b>Version:</b> " + client.getBrowserVersion();
+    document.getElementById('engine').innerHTML = "<b>Engine</b>:" + client.getEngine() + ", <b>Version:</b> " + client.getEngineVersion();
+    document.getElementById('os').innerHTML = "<b>Operating System:</b>:" + client.getOS() + " " + client.getOSVersion();
+    document.getElementById('device').innerHTML = "<b>Device:</b>:" + client.getDevice();
+    document.getElementById('device-type').innerHTML = "<b>Device Type:</b>:" + client.getDeviceType();
+    document.getElementById('device-vendor').innerHTML = "<b>Device Vendor:</b>:" + client.getDeviceVendor();
+    document.getElementById('cpu').innerHTML = "<b>CPU:</b>:" + client.getCPU();
+    document.getElementById('reso').innerHTML = "<b>Current Resolution:</b>:" + client.getCurrentResolution();
+    document.getElementById('color-depth').innerHTML = "<b>Color Depth:</b>:" + client.getColorDepth();
+    document.getElementById('reso-avail').innerHTML = "<b>Availible Resolutions:</b>:" + client.getAvailableResolution();
+    document.getElementById('cookie-i').innerHTML = "<b>Cookie:</b>:" + client.isCookie();
+    document.getElementById('tz').innerHTML = "<b>Time Zone:</b>:" + client.getTimeZone();
+  </script>
+</html>
