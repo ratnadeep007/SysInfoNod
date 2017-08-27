@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://clientjs.org/js/client.min.js"></script>
+  <style>
+    body{
+      background-color: #ffffff
+    }
+    .list-group-item{
+      background-color: #e6ffff;
+      box-shadow: 10px 10px 5px grey;
+    }
+    .btn:hover{
+      box-shadow: 15px 15px 5px grey;
+    }
+  </style>
   <title>
     Sysinfo
   </title>
   <body>
-      <div class="container">
+    <div class="container-fluid">
         <h1>System Info</h1>
-        <div id="output"></div>
-        <h2 class="page-header">Browser Details</h2>
-        <ul class="list-group">
-          <li class="list-group-item" id="useragent"></li>
-          <li class="list-group-item" id="browser"></li>
-          <li class="list-group-item" id="engine"></li>
-          <li class="list-group-item" id="cookie-i"></li>
-        </ul>
-        <h2 class="page-header">Operating System Details</h2>
-        <ul class="list-group">
-          <li class="list-group-item" id="os"></li>
-          <li class="list-group-item" id="tz"></li>
-        </ul>
-        <h2 class="page-header">Device Details</h2>
-        <ul class="list-group">
-          <li class="list-group-item" id="device"></li>
-          <li class="list-group-item" id="device-type"></li>
-          <li class="list-group-item" id="device-vendor"></li>
-        </ul>
-        <h2 class="page-header">CPU Details</h2>
-        <ul class="list-group">
-          <li class="list-group-item" id="cpu"></li>
-        </ul>
-          <h2 class="page-header">Screen Details</h2>
-        <ul class="list-group">
-          <li class="list-group-item" id="reso"></li>
-          <li class="list-group-item" id="color-depth"></li>
-          <li class="list-group-item" id="reso-avail"></li>
-        </ul>
-      </div>
+        <p><i>A NodeJS port for SysInfo Electron.</i></p>
+        <hr>
+        <div class="row">
+          <div class="col-sm-9 col-md-8">
+            <div id="output"></div>
+              <a href="#br" data-toggle="collapse" class="btn btn-default"><div>Browser Details</div></a>
+              <div class="collapse" id="br">
+                <ul class="list-group">
+                  <li class="list-group-item" id="useragent"></li>
+                  <li class="list-group-item" id="browser"></li>
+                  <li class="list-group-item" id="engine"></li>
+                  <li class="list-group-item" id="cookie-i"></li>
+                </ul>
+              </div>
+              <a href="#opsys" data-toggle="collapse" class="btn btn-default"><div>Operating System Details</div></a>
+              <div class="collapse" id="opsys">
+                <ul class="list-group">
+                  <li class="list-group-item" id="os"></li>
+                  <li class="list-group-item" id="tz"></li>
+                </ul>
+              </div>
+              <a href="#devsys" data-toggle="collapse" class="btn btn-default"><div>Device Details</div></a>
+              <div class="collapse" id="devsys">
+                <ul class="list-group">
+                  <li class="list-group-item" id="device"></li>
+                  <li class="list-group-item" id="device-type"></li>
+                  <li class="list-group-item" id="device-vendor"></li>
+                </ul>
+              </div>
+              <a href="#cpu-sys" data-toggle="collapse" class="btn btn-default"><div>CPU Details</div></a>
+              <div class="collapse" id="cpu-sys">
+                <ul class="list-group">
+                  <li class="list-group-item" id="cpu"></li>
+                </ul>
+              </div>
+              <a href="#resol" data-toggle="collapse" class="btn btn-default"><div>Screen Details</div></a>
+              <div class="collapse" id="resol">
+                <ul class="list-group">
+                  <li class="list-group-item" id="reso"></li>
+                  <li class="list-group-item" id="color-depth"></li>
+                  <li class="list-group-item" id="reso-avail"></li>
+                </ul>
+              </div>
+              <a href="#finger" data-toggle="collapse" class="btn btn-default"><div>Fingerprint</div></a>
+              <div class="collapse" id="finger">
+                <ul>
+                  <li class="list-group-item" id="fingerprint"></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-4">
+              <a href="https://github.com/ratnadeep007/SysInfoNod">About and Source Code on GitHub</a><br/>
+              <a href="https://github.com/ratnadeep007/SysinfoElectron">SysInfoElectron on GitHub</a><br/>
+              <a href="https://www.dropbox.com/s/7oxve1kini6c2r2/SysInfo-win32-x64.exe?dl=0">SysInfoElectron Windows executable</a><br/>
+              Made with help of <a href="nodejs.org">NodeJS</a>, <a href="expressjs.com">ExpressJS</a> and <a href="getbootstrap.com">Bootstap</a>.<br/>
+              Hosted on <a href="openshift.com">OpenShift</a>.
+            </div>
+          </div>
+        </div>
   </body>
   <script>
   var client = new ClientJS(); // Create A New Client Object
@@ -55,5 +101,6 @@
     document.getElementById('reso-avail').innerHTML = "<b>Availible Resolutions:</b>:" + client.getAvailableResolution();
     document.getElementById('cookie-i').innerHTML = "<b>Cookie:</b>:" + client.isCookie();
     document.getElementById('tz').innerHTML = "<b>Time Zone:</b>:" + client.getTimeZone();
+    document.getElementById('fingerprint').innerHTML = "<strong>" + client.getFingerprint() + "</strong>";
   </script>
 </html>
